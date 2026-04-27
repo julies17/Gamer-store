@@ -1,10 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<title>Mi tienda</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda Gamer</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#000;color:#fff}
+header{text-align:center;padding:20px;color:#00ff88}
+.container{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
+.product{background:#111;border-radius:10px;padding:10px;text-align:center}
+.product img{width:100%;border-radius:10px}
+button{background:#00ff88;border:none;padding:6px;border-radius:6px}
+#carrito{position:fixed;bottom:0;width:100%;background:#111;padding:10px;display:flex;justify-content:space-between}
+</style>
 </head>
-<body style="background:black;color:white;text-align:center;">
-<h1>🎮 Mi tienda gamer</h1>
-<p>Si ves esto, ya funciona 😎</p>
+
+<body>
+
+<header><h2>🎮 TIENDA GAMER</h2></header>
+
+<div class="container">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1585298723682-7115561c51b7">
+<p>Audífonos Gamer - Q300</p>
+<button onclick="add(300)">Agregar</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7">
+<p>Mouse RGB - Q250</p>
+<button onclick="add(250)">Agregar</button>
+</div>
+
+<div class="product">
+<img src="https://www.pngplay.com/wp-content/uploads/13/Video-Game-Controller-PNG-Clipart-Background.png">
+<p>Controller - Q699</p>
+<button onclick="add(699)">Agregar</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1593642532400-2682810df593">
+<p>Teclado - Q229.99</p>
+<button onclick="add(229.99)">Agregar</button>
+</div>
+
+</div>
+
+<div id="carrito">
+<span id="total">Total: Q0</span>
+<button onclick="comprar()">Comprar</button>
+</div>
+
+<script>
+let total=0;
+function add(p){
+  total+=p;
+  document.getElementById('total').textContent='Total: Q'+total.toFixed(2);
+}
+function comprar(){
+  alert('Compra realizada 🎮🔥');
+}
+</script>
+
 </body>
 </html>
