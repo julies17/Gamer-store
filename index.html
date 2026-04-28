@@ -1,66 +1,229 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tienda Gamer</title>
+<title>Gamer Store</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#000;color:#fff}
-header{text-align:center;padding:20px;color:#00ff88}
-.container{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
-.product{background:#111;border-radius:10px;padding:10px;text-align:center}
-.product img{width:100%;border-radius:10px}
-button{background:#00ff88;border:none;padding:6px;border-radius:6px}
-#carrito{position:fixed;bottom:0;width:100%;background:#111;padding:10px;display:flex;justify-content:space-between}
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:radial-gradient(circle at top,#15191f,#050607 70%);
+  color:white;
+  padding-bottom:100px;
+}
+
+header{
+  text-align:center;
+  padding:10px;
+}
+
+.cover{
+  width:100%;
+  max-height:560px;
+  object-fit:cover;
+  border-radius:15px;
+}
+
+.title{
+  text-align:center;
+  padding:20px;
+}
+
+.title h1{
+  font-size:35px;
+  color:#00ff88;
+}
+
+.title p{
+  color:#ccc;
+}
+
+.badges{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
+  padding:15px;
+}
+
+.badge{
+  background:#111;
+  border:1px solid #ffcc00;
+  color:#ffcc00;
+  padding:12px;
+  border-radius:12px;
+  text-align:center;
+}
+
+.section-title{
+  text-align:center;
+  color:#00ff88;
+  font-size:28px;
+}
+
+.container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  padding:20px;
+}
+
+.product{
+  background:#111;
+  border-radius:15px;
+  padding:12px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.product:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #00ff88;
+}
+
+.product img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+.product h3{
+  margin:10px 0;
+}
+
+.product p{
+  color:#00ff88;
+  font-size:20px;
+  font-weight:bold;
+}
+
+button{
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  background:#00ff88;
+  color:black;
+  font-weight:bold;
+}
+
+#cart{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#111;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-top:2px solid #00ff88;
+}
+
+#total{
+  color:#00ff88;
+  font-weight:bold;
+}
+
+.buy{
+  width:auto;
+  padding:10px 20px;
+}
 </style>
 </head>
-
 <body>
 
-<header><h2>🎮 TIENDA GAMER</h2></header>
+<header>
+<img class="cover" src="ChatGPT Image 23 abr 2026, 08_49_30 a.m..png" alt="Store Cover">
+</header>
+
+<section class="title">
+<h1>🎮 GAMER STORE</h1>
+<p>Great deals, raffles, and awesome products!</p>
+</section>
+
+<div class="badges">
+<div class="badge">⭐ Quality Products</div>
+<div class="badge">🎟️ Raffles</div>
+<div class="badge">🏷️ Offers</div>
+<div class="badge">💛 Trusted Service</div>
+</div>
+
+<h2 class="section-title">🕹️ OUR PRODUCTS</h2>
 
 <div class="container">
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1585298723682-7115561c51b7">
-<p>Audífonos Gamer - Q300</p>
-<button onclick="add(300)">Agregar</button>
+<h3>Gaming Headset RGB</h3>
+<p>Q300.00</p>
+<button onclick="addToCart('Gaming Headset RGB',300)">Add to Cart</button>
 </div>
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7">
-<p>Mouse RGB - Q250</p>
-<button onclick="add(250)">Agregar</button>
+<h3>RGB Gaming Mouse</h3>
+<p>Q250.00</p>
+<button onclick="addToCart('RGB Gaming Mouse',250)">Add to Cart</button>
 </div>
 
 <div class="product">
-<img src="https://www.pngplay.com/wp-content/uploads/13/Video-Game-Controller-PNG-Clipart-Background.png">
-<p>Controller - Q699</p>
-<button onclick="add(699)">Agregar</button>
+<img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db">
+<h3>Wireless Pro Controller</h3>
+<p>Q699.00</p>
+<button onclick="addToCart('Wireless Pro Controller',699)">Add to Cart</button>
 </div>
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1593642532400-2682810df593">
-<p>Teclado - Q229.99</p>
-<button onclick="add(229.99)">Agregar</button>
+<h3>Mechanical Keyboard</h3>
+<p>Q229.99</p>
+<button onclick="addToCart('Mechanical Keyboard',229.99)">Add to Cart</button>
 </div>
 
 </div>
 
-<div id="carrito">
-<span id="total">Total: Q0</span>
-<button onclick="comprar()">Comprar</button>
+<div id="cart">
+<span id="total">Total: Q0.00</span>
+<button class="buy" onclick="checkout()">Buy Now</button>
 </div>
 
 <script>
-let total=0;
-function add(p){
-  total+=p;
-  document.getElementById('total').textContent='Total: Q'+total.toFixed(2);
+let total = 0;
+let cart = [];
+
+function addToCart(product, price){
+  cart.push({product, price});
+  total += price;
+  document.getElementById("total").innerText =
+    "Total: Q" + total.toFixed(2);
 }
-function comprar(){
-  alert('Compra realizada 🎮🔥');
+
+function checkout(){
+  if(cart.length === 0){
+    alert("Your cart is empty");
+    return;
+  }
+
+  let message = "Hello, I want to buy:\n";
+
+  cart.forEach(item=>{
+    message += item.product + " - Q" + item.price + "\n";
+  });
+
+  message += "Total: Q" + total.toFixed(2);
+
+  window.open(
+    "https://wa.me/50237223083?text=" +
+    encodeURIComponent(message),
+    "_blank"
+  );
 }
 </script>
 
