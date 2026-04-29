@@ -60,29 +60,66 @@ header{padding:18px 20px;background:linear-gradient(90deg,#111,#1d1033);position
 <div class="modal" id="wishlistModal"><div class="modal-content"><h2>❤️ Wishlist</h2><div id="wishList">Empty wishlist.</div><br><button onclick="closeModal('wishlistModal')">Close</button></div></div>
 <div class="modal" id="paymentModal"><div class="modal-content"><h2>💳 Simulated Payment</h2><input id="payName" placeholder="Name on card"><input id="payCard" placeholder="Card number (simulation)"><button class="primary" onclick="finishPayment()">Complete Payment</button><br><br><button onclick="closeModal('paymentModal')">Cancel</button></div></div>
 <script>
-let products=[{name:'Bluetooth Gamer RGB Speaker',price:399,img:'Screenshot_20260427-180010-display-0.png.png'},{name:'Gaming Headset',price:300,img:'https://images.unsplash.com/photo-1585298723682-7115561c51b7'},{name:'RGB Mouse',price:250,img:'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7'},{name:'Gaming Keyboard',price:229.99,img:'https://images.unsplash.com/photo-1593642532400-2682810df593'},{name:'Gaming Chair',price:1200,img:'https://images.unsplash.com/photo-1598550476439-6847785fcea6'},{name:'Gaming Monitor',price:1800,img:'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf'},{name:'Gaming Microphone',price:350,img:'https://images.unsplash.com/photo-1516280440614-37939bbacd81'},{name:'Gaming Webcam',price:420,img:'https://images.unsplash.com/photo-1587829741301-dc798b83add3'},{name:'Mouse Pad XL',price:120,img:'https://images.unsplash.com/photo-1616627458018-4d3bdf8c56f2'},{name:'Gaming Speakers',price:500,img:'https://images.unsplash.com/photo-1545454675-3531b543be5d'},{name:'RGB PC Case',price:950,img:'https://images.unsplash.com/photo-1587202372634-32705e3bf49c'},{name:'Gaming Laptop',price:5500,img:'https://images.unsplash.com/photo-1517336714739-489689fd1ca8'},{name:'Streaming Deck',price:850,img:'https://images.unsplash.com/photo-1579370318443-8da816457c11'},{name:'VR Headset',price:3200,img:'https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac'},{name:'Gaming Router',price:650,img:'https://images.unsplash.com/photo-1647427060118-4911c9821b82'},{name:'RGB Gaming Desk',price:1700,img:'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85'},{name:'Capture Card',price:780,img:'https://images.unsplash.com/photo-1580894908361-967195033215'},{name:'Portable SSD',price:600,img:'https://images.unsplash.com/photo-1591488320449-011701bb6704'},{name:'Gaming Glasses',price:220,img:'https://images.unsplash.com/photo-1511499767150-a48a237f0083'}];
-let cart=JSON.parse(localStorage.getItem('cart'))||[];let orders=JSON.parse(localStorage.getItem('orders'))||[];let wishlist=JSON.parse(localStorage.getItem('wishlist'))||[];let discount=0;let points=parseInt(localStorage.getItem('points'))||0;let storeXP=parseInt(localStorage.getItem('storeXP'))||0;let storeLevel=parseInt(localStorage.getItem('storeLevel'))||1;let countdownStarted=false;
-function save(){localStorage.setItem('cart',JSON.stringify(cart));localStorage.setItem('orders',JSON.stringify(orders));localStorage.setItem('wishlist',JSON.stringify(wishlist));localStorage.setItem('points',points);localStorage.setItem('storeXP',storeXP);localStorage.setItem('storeLevel',storeLevel)}
-function toast(msg){let t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',1400)}
+let products=[
+{name:'Bluetooth Gamer RGB Speaker',price:399,img:'Screenshot_20260427-180010-display-0.png.png'},
+{name:'Gaming Headset',price:300,img:'https://images.unsplash.com/photo-1585298723682-7115561c51b7'},
+{name:'RGB Mouse',price:250,img:'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7'},
+{name:'Gaming Keyboard',price:229.99,img:'https://images.unsplash.com/photo-1593642532400-2682810df593'},
+{name:'Gaming Chair',price:1200,img:'https://images.unsplash.com/photo-1598550476439-6847785fcea6'},
+{name:'Gaming Monitor',price:1800,img:'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf'},
+{name:'Gaming Microphone',price:350,img:'https://images.unsplash.com/photo-1516280440614-37939bbacd81'},
+{name:'Gaming Webcam',price:420,img:'https://images.unsplash.com/photo-1587829741301-dc798b83add3'},
+{name:'Mouse Pad XL',price:120,img:'https://images.unsplash.com/photo-1616627458018-4d3bdf8c56f2'},
+{name:'Gaming Speakers',price:500,img:'https://images.unsplash.com/photo-1545454675-3531b543be5d'},
+{name:'RGB PC Case',price:950,img:'https://images.unsplash.com/photo-1587202372634-32705e3bf49c'},
+{name:'Gaming Laptop',price:5500,img:'https://images.unsplash.com/photo-1517336714739-489689fd1ca8'},
+{name:'Streaming Deck',price:850,img:'https://images.unsplash.com/photo-1579370318443-8da816457c11'},
+{name:'VR Headset',price:3200,img:'https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac'},
+{name:'Gaming Router',price:650,img:'https://images.unsplash.com/photo-1647427060118-4911c9821b82'},
+{name:'RGB Gaming Desk',price:1700,img:'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85'},
+{name:'Capture Card',price:780,img:'https://images.unsplash.com/photo-1580894908361-967195033215'},
+{name:'Portable SSD',price:600,img:'https://images.unsplash.com/photo-1591488320449-011701bb6704'},
+{name:'Gaming Glasses',price:220,img:'https://images.unsplash.com/photo-1511499767150-a48a237f0083'}
+];
+
+let cart=JSON.parse(localStorage.getItem('cart'))||[];
+let orders=JSON.parse(localStorage.getItem('orders'))||[];
+let wishlist=JSON.parse(localStorage.getItem('wishlist'))||[];
+let points=parseInt(localStorage.getItem('points'))||0;
+let storeXP=parseInt(localStorage.getItem('storeXP'))||0;
+let storeLevel=parseInt(localStorage.getItem('storeLevel'))||1;
+let discount=0;
+let countdownStarted=false;
+
+function save(){
+localStorage.setItem('cart',JSON.stringify(cart));
+localStorage.setItem('orders',JSON.stringify(orders));
+localStorage.setItem('wishlist',JSON.stringify(wishlist));
+localStorage.setItem('points',points);
+localStorage.setItem('storeXP',storeXP);
+localStorage.setItem('storeLevel',storeLevel);
+}
+function toast(msg){let t=document.getElementById('toast');if(!t)return; t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',1400)}
 function setDevice(device){document.body.classList.remove('desktop','tablet','phone');document.body.classList.add(device);toast('View changed to '+device)}
-function renderProducts(){let q=document.getElementById('search').value.toLowerCase();let box=document.getElementById('products');box.innerHTML='';products.filter(p=>p.name.toLowerCase().includes(q)).forEach(p=>{box.innerHTML+=`<div class="product"><span class="heart" onclick="addWish('${p.name}')">♡</span><img src="${p.img}"><h3>${p.name}</h3><p class="price">Q${p.price}</p><button class="primary" onclick="addToCart('${p.name}',${p.price})">Add</button> <button class="ghost" onclick="buyNow('${p.name}',${p.price})">WhatsApp</button></div>`})}
-function addToCart(name,price){let item=cart.find(i=>i.name===name);if(item)item.qty++;else cart.push({name,price,qty:1});addXP(5);save();updateCart();toast('Added to cart 🛒')}
-function updateCart(){let total=cart.reduce((s,i)=>s+i.price*i.qty,0);if(discount)total*=0.9;document.getElementById('cartCount').textContent=cart.reduce((s,i)=>s+i.qty,0);document.getElementById('cartTotal').textContent=total.toFixed(2)}
-function addWish(name){if(!wishlist.includes(name))wishlist.push(name);save();toast('Added to wishlist ❤️')}
-function showWishlist(){document.getElementById('wishList').innerHTML=wishlist.length?wishlist.map(w=>'<div class="list-item">❤️ '+w+'</div>').join(''):'Empty wishlist.';openModal('wishlistModal')}
-function applyCoupon(){let c=document.getElementById('coupon').value.toUpperCase();if(c==='GAMER10'){discount=10;toast('10% discount applied 🎟️');updateCart()}else toast('Invalid coupon ❌')}
+function renderProducts(){let search=document.getElementById('search');let q=search?search.value.toLowerCase():'';let box=document.getElementById('products');if(!box)return;box.innerHTML='';products.filter(p=>p.name.toLowerCase().includes(q)).forEach(p=>{box.innerHTML+=`<div class="product"><span class="heart" onclick="addWish('${p.name}')">♡</span><img src="${p.img}"><h3>${p.name}</h3><p class="price">Q${p.price}</p><button class="primary" onclick="addToCart('${p.name}',${p.price})">Add</button> <button class="ghost" onclick="buyNow('${p.name}',${p.price})">WhatsApp</button></div>`})}
+function addToCart(name,price){let item=cart.find(i=>i.name===name);if(item){item.qty++}else{cart.push({name,price,qty:1})}addXP(5);save();updateCart();toast('Added to cart 🛒')}
+function updateCart(){let total=cart.reduce((s,i)=>s+i.price*i.qty,0);if(discount){total*=0.9}let count=cart.reduce((s,i)=>s+i.qty,0);let cartCount=document.getElementById('cartCount');let cartTotal=document.getElementById('cartTotal');if(cartCount)cartCount.textContent=count;if(cartTotal)cartTotal.textContent=total.toFixed(2)}
+function addWish(name){if(!wishlist.includes(name)){wishlist.push(name)}save();toast('Added to wishlist ❤️')}
+function showWishlist(){let box=document.getElementById('wishList');if(box){box.innerHTML=wishlist.length?wishlist.map(w=>'<div class="list-item">❤️ '+w+'</div>').join(''):'Empty wishlist.'}openModal('wishlistModal')}
+function applyCoupon(){let input=document.getElementById('coupon');let code=input?input.value.toUpperCase():'';if(code==='GAMER10'){discount=10;toast('10% discount applied 🎟️');updateCart()}else{toast('Invalid coupon ❌')}}
 function activateOffer(){toast('Flash offer activated 🔥')}
 function spinWheel(){const prizes=['5% OFF','10% OFF','Free Shipping','Lucky Try Again'];toast('Prize: '+prizes[Math.floor(Math.random()*prizes.length)]+' 🎉')}
 function claimMission(){toast('Mission completed 🎯 +20 XP');addXP(20)}
 function openMysteryBox(){const rewards=['Coupon 5% OFF','Free Shipping','50 Points','Lucky Item'];toast('Mystery reward: '+rewards[Math.floor(Math.random()*rewards.length)]+' 🎁')}
 function joinGiveaway(){toast('You joined the giveaway 🎉')}
-function claimDailyReward(){points+=25;save();document.getElementById('points').textContent=points;toast('Daily reward claimed 🎰 +25 points');unlockAchievement('Daily Collector')}
+function claimDailyReward(){points+=25;save();let p=document.getElementById('points');if(p)p.textContent=points;toast('Daily reward claimed 🎰 +25 points');unlockAchievement('Daily Collector')}
 function activatePriceAlerts(){toast('Price alerts activated 📈')}
 function shareReferral(){if(navigator.clipboard){navigator.clipboard.writeText(window.location.href)}toast('Referral copied 🤝')}
 function randomTheme(){document.body.style.filter='hue-rotate('+(Math.floor(Math.random()*360))+'deg)';toast('Theme changed 🎨')}
-function unlockAchievement(name){let box=document.getElementById('achievementBox');if(box.textContent.includes(name))return;if(box.textContent.includes('No achievements'))box.innerHTML='';box.innerHTML+='<div class="list-item">🏅 '+name+'</div>'}
-function addXP(amount){storeXP+=amount;if(storeXP>=100){storeXP=0;storeLevel++;toast('Level up! 🚀 Level '+storeLevel)}document.getElementById('storeXP').textContent=storeXP;document.getElementById('storeLevel').textContent=storeLevel;save()}
+function unlockAchievement(name){let box=document.getElementById('achievementBox');if(!box)return;if(box.textContent.includes(name))return;if(box.textContent.includes('No achievements'))box.innerHTML='';box.innerHTML+='<div class="list-item">🏅 '+name+'</div>'}
+function addXP(amount){storeXP+=amount;if(storeXP>=100){storeXP=0;storeLevel++;toast('Level up! 🚀 Level '+storeLevel)}let xp=document.getElementById('storeXP');let lvl=document.getElementById('storeLevel');if(xp)xp.textContent=storeXP;if(lvl)lvl.textContent=storeLevel;save()}
 function buyNow(name,price){window.open('https://wa.me/50237223083?text='+encodeURIComponent('Hello, I want to buy '+name+' for Q'+price),'_blank')}
 function openPayment(){if(cart.length===0){alert('Cart is empty');return}openModal('paymentModal')}
-function finishPayment(){let total=document.getElementById('cartTotal').textContent;let order='Order:\n';cart.forEach(i=>order+=i.name+' x'+i.qty+'\n');order+='Total: Q'+total;orders.push(order);points+=50;cart=[];save();updateCart();renderOrders();closeModal('paymentModal');alert('Payment completed 💳');window.open('https://wa.me/50237223083?text='+encodeURIComponent('Hello, I completed this order:\n'+order),'_blank')}
-function renderOrders(){let box=document.getElementById('ordersList');box.innerHTML=orders.length?orders.map(o=>'<div class="list-item">'+o+'</div>').join(''):'
+function finishPayment(){let total=document.getElementById('cartTotal').textContent;let order='Order:
+';cart.forEach(i=>order+=i.name+' x'+i.qty+'
+');order+='Total: Q'+total;orders.push(order);points+=50;cart=[];save();updateCart();renderOrders();closeModal('paymentModal');alert('P
