@@ -5,116 +5,86 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gamer Store Ultra</title>
 <style>
-*{box-sizing:border-box}
-:root{--bg:#090b13;--card:#151a26;--text:#fff;--purple:#7c3aed;--green:#10b981;--yellow:#ffcc00}
-body.light{--bg:#f4f7fb;--card:#fff;--text:#111;--purple:#6d28d9;--green:#059669;--yellow:#d97706}
-body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);padding-bottom:90px}
-button{border:none;border-radius:12px;padding:11px 14px;font-weight:bold;cursor:pointer;margin:3px}.primary{background:var(--purple);color:white}.green{background:var(--green);color:black}.ghost{background:transparent;color:var(--green);border:1px solid var(--green)}
-input,select{padding:11px;border-radius:12px;border:1px solid #444;background:#101625;color:white;margin:5px;width:100%}.light input,.light select{background:white;color:#111}
-.topbar{text-align:center;background:linear-gradient(90deg,var(--purple),#111827);padding:8px;font-weight:bold}.device{text-align:center;background:#0d1220;padding:10px}
-nav{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;background:#111827;padding:14px;border-bottom:2px solid var(--purple)}.logo{font-size:24px;font-weight:900;color:var(--green)}
-.wrap{max-width:1200px;margin:auto}.phone .wrap{max-width:390px}.tablet .wrap{max-width:760px}.phone .products{grid-template-columns:1fr}.tablet .products{grid-template-columns:1fr 1fr}
-.hero{min-height:380px;background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.8)),url('ChatGPT Image 23 abr 2026, 08_49_30 a.m..png');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}.hero-box{background:rgba(0,0,0,.6);border:1px solid var(--purple);border-radius:22px;padding:25px;max-width:780px}.hero h1{font-size:42px;margin:0}
-.container{padding:18px}.panel,.product{background:var(--card);border-radius:18px;padding:16px;margin:15px 0;box-shadow:0 0 16px rgba(124,58,237,.25)}.featured{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}.featured img{width:100%;border-radius:18px;background:#111;padding:12px}.price{font-size:26px;color:var(--green);font-weight:bold}.old{text-decoration:line-through;color:#aaa;font-size:17px}
-.badges,.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}.badge,.stat{background:var(--card);border:1px solid var(--yellow);color:var(--yellow);border-radius:16px;text-align:center;padding:14px;font-weight:bold;cursor:pointer}.stat strong{display:block;color:var(--green);font-size:24px}
-.tools{display:flex;gap:8px;flex-wrap:wrap}.tools input,.tools select{flex:1;min-width:160px}.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}.product{text-align:center;position:relative}.product img{width:100%;height:160px;object-fit:cover;border-radius:14px}.heart{position:absolute;right:15px;top:15px;font-size:24px;cursor:pointer}.tag{position:absolute;left:12px;top:12px;background:var(--yellow);color:black;padding:4px 7px;border-radius:8px;font-size:12px}.item{border-bottom:1px solid #334155;padding:9px}
-.cartbar{position:fixed;bottom:0;left:0;right:0;z-index:30;background:#0b1020;color:white;border-top:2px solid var(--purple);display:flex;justify-content:space-around;align-items:center;padding:12px}.support{position:fixed;right:18px;bottom:92px;border-radius:50%;width:58px;height:58px;background:var(--green);z-index:31;font-size:25px}.toast{display:none;position:fixed;top:80px;right:20px;background:var(--purple);color:white;padding:12px 18px;border-radius:12px;z-index:40}.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:50;align-items:center;justify-content:center;padding:20px}.modal-content{background:var(--card);color:var(--text);border:2px solid var(--purple);border-radius:20px;padding:20px;max-width:460px;width:100%;max-height:85vh;overflow:auto}.tracking{height:10px;background:#333;border-radius:10px;overflow:hidden}.tracking span{display:block;height:100%;width:65%;background:var(--green)}.chat{max-height:180px;overflow:auto;background:#0e1320;border-radius:12px;padding:10px;margin:10px 0}
-@media(max-width:760px){.featured{grid-template-columns:1fr}.hero h1{font-size:31px}.products{grid-template-columns:1fr 1fr}.product img{height:125px}.cartbar{font-size:13px}}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#0b1020;color:#fff;padding-bottom:90px}button{cursor:pointer;border:none;border-radius:12px;padding:10px 14px;margin:4px}.primary{background:#7c3aed;color:#fff}.green{background:#10b981;color:#000}.ghost{background:transparent;color:#10b981;border:1px solid #10b981}input,select{padding:10px;border-radius:10px;border:1px solid #444;background:#111827;color:#fff}.topbar,.device,nav,.hero,.container{padding:15px}.topbar{background:#111827;text-align:center}.device{text-align:center}.hero{text-align:center;background:#151a26}.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.product,.panel{background:#151a26;padding:15px;border-radius:16px}.product img{width:100%;height:160px;object-fit:cover;border-radius:12px}.cartbar{position:fixed;bottom:0;left:0;right:0;background:#111827;padding:12px;display:flex;justify-content:space-around}.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);align-items:center;justify-content:center}.modal-content{background:#151a26;padding:20px;border-radius:16px;width:90%;max-width:400px}.item{padding:8px;border-bottom:1px solid #333}
 </style>
 </head>
 <body>
-<div class="toast" id="toast">Done</div>
-<div class="topbar">⚡ Flash Sale | Use GAMER10 | Support 24/7</div>
-<div class="device"><button class="ghost" onclick="setDevice('desktop')">💻 Computer</button><button class="ghost" onclick="setDevice('tablet')">📱 Tablet</button><button class="ghost" onclick="setDevice('phone')">📲 Phone</button></div>
-<nav><div class="logo">🎮 Gamer Store Ultra</div><select id="lang" onchange="changeLang()"><option value="en">English</option><option value="es">Español</option></select><button class="ghost" onclick="toggleTheme()">🌗 Theme</button><button class="ghost" onclick="openModal('accountModal')">👤 Account</button><button class="ghost" onclick="openOrders()">📦 Orders</button><button class="ghost" onclick="openWishlist()">❤️ Wishlist</button><button class="ghost" onclick="shareStore()">📤 Share</button></nav>
-<div class="wrap">
-<section class="hero"><div class="hero-box"><h1 data-en="GAMER STORE ULTRA" data-es="TIENDA GAMER ULTRA">GAMER STORE ULTRA</h1><p data-en="Products, games, consoles, phones, rewards and WhatsApp checkout." data-es="Productos, juegos, consolas, celulares, recompensas y compras por WhatsApp.">Products, games, consoles, phones, rewards and WhatsApp checkout.</p><button class="primary" onclick="scrollToProducts()">Shop Now</button><button class="green" onclick="contactSupport()">Contact Us</button></div></section>
+<div class="topbar">⚡ Flash Sale | Use GAMER10</div>
+<div class="device">
+<button class="ghost" onclick="setDevice('desktop')">💻 Computer</button>
+<button class="ghost" onclick="setDevice('tablet')">📱 Tablet</button>
+<button class="ghost" onclick="setDevice('phone')">📲 Phone</button>
+</div>
+<nav>
+<button onclick="openModal('accountModal')">👤 Account</button>
+<button onclick="openOrders()">📦 Orders</button>
+<button onclick="openWishlist()">❤️ Wishlist</button>
+<button onclick="shareStore()">📤 Share</button>
+</nav>
+<section class="hero">
+<h1>🎮 Gamer Store Ultra</h1>
+<button class="primary" onclick="scrollToProducts()">Products</button>
+<button class="green" onclick="contactSupport()">Contact Us</button>
+<button class="ghost" onclick="filterCategory('Games')">Games</button>
+<button class="ghost" onclick="filterCategory('Phones')">Phones</button>
+</section>
 <div class="container">
-<div class="badges"><div class="badge" onclick="scrollToProducts()">⭐ Products</div><div class="badge" onclick="filterCategory('Games')">🎮 Games</div><div class="badge" onclick="filterCategory('Phones')">📱 Phones</div><div class="badge" onclick="autoCoupon()">🏷️ Offers</div></div>
-<div class="stats"><div class="stat"><strong id="statProducts">0</strong>Products</div><div class="stat"><strong>24/7</strong>Support</div><div class="stat"><strong id="pointsView">0</strong>Points</div><div class="stat"><strong id="levelView">1</strong>Level</div></div>
-<section class="panel featured"><img src="Screenshot_20260427-180010-display-0.png.png" alt="RGB Speaker"><div><h2>Bluetooth Gamer RGB Speaker 360°</h2><p>Powerful 360° RGB sound for your setup.</p><p class="price">Q399 <span class="old">Q599</span></p><button class="primary" onclick="addToCart('Bluetooth Gamer RGB Speaker',399)">🛒 Add to Cart</button><button class="green" onclick="buyNow('Bluetooth Gamer RGB Speaker',399)">📱 WhatsApp</button></div></section>
-<section class="panel"><h2>🎟️ Coupon Center</h2><p>Use code: <b>GAMER10</b></p><input id="coupon" placeholder="Enter coupon"><button class="primary" onclick="applyCoupon()">Apply Coupon</button></section>
-<section class="panel"><h2>🔥 Fun Features</h2><button class="primary" onclick="spinWheel()">🎡 Spin Prize</button><button class="primary" onclick="claimDailyReward()">🎰 Daily Reward</button><button class="primary" onclick="openMysteryBox()">🎁 Mystery Box</button><button class="primary" onclick="claimMission()">🎯 Mission</button></section>
-<section class="panel"><h2>⏰ Mega Sale Countdown</h2><h2 id="countdown">01:00:00</h2></section>
-<section class="panel"><h2>🏆 Rewards</h2><div class="item">Points: <b id="points">0</b></div><div class="item">Level: <b id="level">1</b></div><div class="item">XP: <b id="xp">0</b></div><div id="achievements" class="item">No achievements yet.</div></section>
-<h2 id="productsTitle">🔥 Products</h2><div class="tools"><input id="search" oninput="renderProducts()" placeholder="Search products..."><select id="category" onchange="renderProducts()"><option value="all">All categories</option><option value="Audio">Audio</option><option value="Accessories">Accessories</option><option value="Furniture">Furniture</option><option value="PC">PC</option><option value="Streaming">Streaming</option><option value="Consoles">Consoles</option><option value="Phones">Phones</option><option value="Games">Games</option></select><select id="sort" onchange="renderProducts()"><option value="default">Sort</option><option value="low">Low to High</option><option value="high">High to Low</option></select></div><div class="products" id="products"></div>
-<section class="panel" id="raffles"><h2>🎟️ Raffles</h2><div class="item">RGB Mouse Raffle <button class="green" onclick="joinRaffle('RGB Mouse Raffle')">Join</button></div><div class="item">Gaming Kit Raffle <button class="green" onclick="joinRaffle('Gaming Kit Raffle')">Join</button></div></section>
-<section class="panel"><h2>🚚 Tracking</h2><p>Last order: <b id="trackText">Preparing package</b></p><div class="tracking"><span id="trackBar"></span></div><button class="ghost" onclick="advanceTracking()">Advance Tracking</button></section>
-<section class="panel"><h2>⭐ Reviews</h2><button class="ghost" onclick="addReview()">Add Review</button><div id="reviews"><div class="item">⭐⭐⭐⭐⭐ Great store!</div></div></section>
-<section class="panel"><h2>🤖 Support Bot</h2><div class="chat" id="chatBox"><div class="item">Bot: Ask me about products, coupons or shipping.</div></div><input id="chatInput" placeholder="Type a question"><button class="green" onclick="botReply()">Send</button></section>
-<section class="panel"><h2>📢 Live Feed</h2><div id="liveFeed">Waiting for activity...</div></section>
-</div></div>
-<button class="support" onclick="contactSupport()">💬</button>
-<div class="cartbar"><span>🛒 Items: <b id="cartCount">0</b></span><span>Total: Q<b id="cartTotal">0.00</b></span><button class="primary" onclick="openPayment()">💳 Pay</button></div>
-<div class="modal" id="accountModal"><div class="modal-content"><h2>👤 Account</h2><input id="name" placeholder="Name"><input id="email" placeholder="Email"><input id="password" type="password" placeholder="Password"><input id="address" placeholder="Address"><input id="payment" placeholder="Payment method"><button class="primary" onclick="saveAccount()">Save</button><button onclick="openProfile()">Profile</button><button onclick="closeModal('accountModal')">Close</button></div></div>
-<div class="modal" id="profileModal"><div class="modal-content"><h2>🏆 Profile</h2><div id="profileBox"></div><button onclick="closeModal('profileModal')">Close</button></div></div>
-<div class="modal" id="ordersModal"><div class="modal-content"><h2>📦 Orders</h2><div id="ordersBox">No orders yet.</div><button onclick="closeModal('ordersModal')">Close</button></div></div>
-<div class="modal" id="wishlistModal"><div class="modal-content"><h2>❤️ Wishlist</h2><div id="wishBox">Empty.</div><button onclick="closeModal('wishlistModal')">Close</button></div></div>
-<div class="modal" id="paymentModal"><div class="modal-content"><h2>💳 Payment Simulation</h2><input id="cardName" placeholder="Name"><input id="cardNumber" placeholder="Card number"><button class="primary" onclick="finishPayment()">Complete Payment</button><button onclick="closeModal('paymentModal')">Cancel</button></div></div>
+<section class="panel">
+<input id="search" placeholder="Search" oninput="renderProducts()">
+<select id="category" onchange="renderProducts()">
+<option value="all">All</option>
+<option value="Games">Games</option>
+<option value="Phones">Phones</option>
+<option value="Consoles">Consoles</option>
+</select>
+</section>
+<h2 id="productsTitle">Products</h2>
+<div id="products" class="products"></div>
+</div>
+<div class="cartbar">
+<span>🛒 <b id="cartCount">0</b></span>
+<span>Q<b id="cartTotal">0</b></span>
+<button class="primary" onclick="openPayment()">💳 Pay</button>
+</div>
+<div class="modal" id="accountModal"><div class="modal-content"><h2>Account</h2><input id="name" placeholder="Name"><button onclick="saveAccount()">Save</button><button onclick="closeModal('accountModal')">Close</button></div></div>
+<div class="modal" id="ordersModal"><div class="modal-content"><h2>Orders</h2><div id="ordersBox"></div><button onclick="closeModal('ordersModal')">Close</button></div></div>
+<div class="modal" id="wishlistModal"><div class="modal-content"><h2>Wishlist</h2><div id="wishBox"></div><button onclick="closeModal('wishlistModal')">Close</button></div></div>
+<div class="modal" id="paymentModal"><div class="modal-content"><h2>Payment</h2><button onclick="finishPayment()">Complete Payment</button><button onclick="closeModal('paymentModal')">Close</button></div></div>
 <script>
-var products=[
-{name:'Bluetooth Gamer RGB Speaker',price:399,cat:'Audio',img:'Screenshot_20260427-180010-display-0.png.png'},
-{name:'Gaming Headset',price:300,cat:'Audio',img:'https://images.unsplash.com/photo-1585298723682-7115561c51b7'},
-{name:'RGB Mouse',price:250,cat:'Accessories',img:'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7'},
-{name:'Gaming Keyboard',price:229.99,cat:'Accessories',img:'https://images.unsplash.com/photo-1593642532400-2682810df593'},
-{name:'Gaming Chair',price:1200,cat:'Furniture',img:'https://images.unsplash.com/photo-1598550476439-6847785fcea6'},
-{name:'Gaming Monitor',price:1800,cat:'PC',img:'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf'},
-{name:'Gaming Microphone',price:350,cat:'Streaming',img:'https://images.unsplash.com/photo-1516280440614-37939bbacd81'},
-{name:'Gaming Webcam',price:420,cat:'Streaming',img:'https://images.unsplash.com/photo-1587829741301-dc798b83add3'},
-{name:'Mouse Pad XL',price:120,cat:'Accessories',img:'https://images.unsplash.com/photo-1616627458018-4d3bdf8c56f2'},
-{name:'Gaming Speakers',price:500,cat:'Audio',img:'https://images.unsplash.com/photo-1545454675-3531b543be5d'},
-{name:'RGB PC Case',price:950,cat:'PC',img:'https://images.unsplash.com/photo-1587202372634-32705e3bf49c'},
-{name:'Gaming Laptop',price:5500,cat:'PC',img:'https://images.unsplash.com/photo-1517336714739-489689fd1ca8'},
-{name:'PlayStation Style Console',price:4200,cat:'Consoles',img:'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3'},
-{name:'Portable Game Console',price:2600,cat:'Consoles',img:'https://images.unsplash.com/photo-1617096200347-cb04ae810b1d'},
-{name:'Gaming Smartphone',price:4800,cat:'Phones',img:'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9'},
-{name:'Power Bank 20000mAh',price:280,cat:'Phones',img:'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5'},
-{name:'Action Battle Game',price:420,cat:'Games',img:'https://images.unsplash.com/photo-1511512578047-dfb367046420'},
-{name:'Racing Legends Game',price:350,cat:'Games',img:'https://images.unsplash.com/photo-1542751371-adc38448a05e'},
-{name:'Soccer Champions Game',price:390,cat:'Games',img:'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8'},
-{name:'Adventure Quest Game',price:450,cat:'Games',img:'https://images.unsplash.com/photo-1550745165-9bc0b252726f'}
+let products=[
+{name:'PS5 Console',price:4200,cat:'Consoles',img:'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3'},
+{name:'Gaming Phone',price:3500,cat:'Phones',img:'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9'},
+{name:'Battle Game',price:400,cat:'Games',img:'https://images.unsplash.com/photo-1511512578047-dfb367046420'}
 ];
-var cart=JSON.parse(localStorage.getItem('cart')||'[]');
-var orders=JSON.parse(localStorage.getItem('orders')||'[]');
-var wishlist=JSON.parse(localStorage.getItem('wishlist')||'[]');
-var points=Number(localStorage.getItem('points')||0);
-var xp=Number(localStorage.getItem('xp')||0);
-var level=Number(localStorage.getItem('level')||1);
-var discount=false;
-var track=0;
-var soundOn=true;
-function playSound(type){if(!soundOn)return;try{var ctx=new (window.AudioContext||window.webkitAudioContext)();var osc=ctx.createOscillator();var gain=ctx.createGain();osc.connect(gain);gain.connect(ctx.destination);osc.frequency.value=type==='cart'?720:type==='pay'?950:type==='error'?220:480;gain.gain.setValueAtTime(0.06,ctx.currentTime);gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.15);osc.start(ctx.currentTime);osc.stop(ctx.currentTime+0.15)}catch(e){}}
-document.addEventListener('click',function(e){if(e.target.tagName==='BUTTON')playSound('click')});
-function save(){localStorage.setItem('cart',JSON.stringify(cart));localStorage.setItem('orders',JSON.stringify(orders));localStorage.setItem('wishlist',JSON.stringify(wishlist));localStorage.setItem('points',points);localStorage.setItem('xp',xp);localStorage.setItem('level',level)}
-function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(function(){t.style.display='none'},1500)}
-function setDevice(mode){document.body.classList.remove('phone','tablet','desktop');document.body.classList.add(mode);toast('View: '+mode)}
-function renderProducts(){var q=document.getElementById('search').value.toLowerCase();var cat=document.getElementById('category').value;var sort=document.getElementById('sort').value;var list=products.filter(function(p){return p.name.toLowerCase().indexOf(q)>-1&&(cat==='all'||p.cat===cat)});if(sort==='low')list.sort(function(a,b){return a.price-b.price});if(sort==='high')list.sort(function(a,b){return b.price-a.price});var box=document.getElementById('products');box.innerHTML='';list.forEach(function(p){box.innerHTML+='<div class="product"><span class="tag">'+p.cat+'</span><span class="heart" onclick="addWish(\''+p.name+'\')">♡</span><img src="'+p.img+'"><h3>'+p.name+'</h3><p class="price">Q'+p.price+'</p><button class="primary" onclick="addToCart(\''+p.name+'\','+p.price+')">Add</button><button class="ghost" onclick="buyNow(\''+p.name+'\','+p.price+')">WhatsApp</button></div>'})}
-function addXP(n){xp+=n;if(xp>=100){xp=0;level++;toast('Level up 🚀')}updateRewards();save()}
-function updateRewards(){document.getElementById('points').textContent=points;document.getElementById('pointsView').textContent=points;document.getElementById('xp').textContent=xp;document.getElementById('level').textContent=level;document.getElementById('levelView').textContent=level}
-function addToCart(name,price){var item=cart.find(function(i){return i.name===name});if(item)item.qty++;else cart.push({name:name,price:price,qty:1});addXP(5);save();updateCart();playSound('cart');toast('Added to cart 🛒')}
-function updateCart(){var total=cart.reduce(function(s,i){return s+i.price*i.qty},0);if(discount)total*=0.9;document.getElementById('cartCount').textContent=cart.reduce(function(s,i){return s+i.qty},0);document.getElementById('cartTotal').textContent=total.toFixed(2)}
-function addWish(name){if(wishlist.indexOf(name)===-1)wishlist.push(name);save();toast('Saved ❤️')}
-function openWishlist(){document.getElementById('wishBox').innerHTML=wishlist.length?wishlist.map(function(x){return '<div class="item">❤️ '+x+'</div>'}).join(''):'Empty.';openModal('wishlistModal')}
-function applyCoupon(){var code=document.getElementById('coupon').value.trim().toUpperCase();if(code==='GAMER10'){discount=true;updateCart();toast('10% OFF applied')}else toast('Invalid coupon')}
-function autoCoupon(){document.getElementById('coupon').value='GAMER10';applyCoupon()}
-function filterCategory(cat){document.getElementById('category').value=cat;renderProducts();scrollToProducts()}
-function spinWheel(){var a=['5% OFF','10% OFF','Free shipping','Try again'];toast('Prize: '+a[Math.floor(Math.random()*a.length)])}
-function claimDailyReward(){points+=25;unlock('Daily Collector');save();updateRewards();toast('+25 points')}
-function openMysteryBox(){points+=10;save();updateRewards();toast('Mystery reward: +10 points')}
-function claimMission(){addXP(20);toast('Mission completed')}
-function joinRaffle(name){window.open('https://wa.me/50237223083?text='+encodeURIComponent('Hello, I want to join '+name),'_blank')}
-function buyNow(name,price){window.open('https://wa.me/50237223083?text='+encodeURIComponent('Hello, I want to buy '+name+' for Q'+price),'_blank')}
-function openPayment(){if(!cart.length){playSound('error');alert('Cart is empty');return}openModal('paymentModal')}
-function finishPayment(){var total=document.getElementById('cartTotal').textContent;var order='Order:';cart.forEach(function(i){order+='\n'+i.name+' x'+i.qty});order+='\nTotal Q'+total;orders.push(order);cart=[];points+=50;save();updateCart();updateRewards();closeModal('paymentModal');playSound('pay');alert('Payment completed');window.open('https://wa.me/50237223083?text='+encodeURIComponent(order),'_blank')}
-function openOrders(){document.getElementById('ordersBox').innerHTML=orders.length?orders.map(function(o){return '<div class="item">'+o+'</div>'}).join(''):'No orders yet.';openModal('ordersModal')}
-function saveAccount(){localStorage.setItem('name',document.getElementById('name').value);localStorage.setItem('email',document.getElementById('email').value);localStorage.setItem('address',document.getElementById('address').value);localStorage.setItem('payment',document.getElementById('payment').value);toast('Account saved')}
-function openProfile(){document.getElementById('profileBox').innerHTML='<div class="item">Name: '+(localStorage.getItem('name')||'Unknown')+'</div><div class="item">Email: '+(localStorage.getItem('email')||'Unknown')+'</div><div class="item">Points: '+points+'</div><div class="item">Level: '+level+'</div>';openModal('profileModal')}
-function toggleTheme(){document.body.classList.toggle('light')}
-function changeLang(){var lang=document.getElementById('lang').value;document.querySelectorAll('[data-en]').forEach(function(el){el.textContent=el.getAttribute('data-'+lang)})}
-
+let cart=[];
+let orders=[];
+let wishlist=[];
+function renderProducts(){
+let q=document.getElementById('search').value.toLowerCase();
+let cat=document.getElementById('category').value;
+let box=document.getElementById('products');
+box.innerHTML='';
+products.filter(p=>(cat==='all'||p.cat===cat)&&p.name.toLowerCase().includes(q)).forEach(p=>{
+box.innerHTML+=`<div class="product"><img src="${p.img}"><h3>${p.name}</h3><p>Q${p.price}</p><button onclick="addToCart('${p.name}',${p.price})">Add to cart</button><button onclick="addWish('${p.name}')">❤️</button></div>`;
+});
+}
+function addToCart(name,price){let item=cart.find(i=>i.name===name);if(item){item.qty++}else{cart.push({name,price,qty:1})}updateCart();}
+function updateCart(){let total=0,count=0;cart.forEach(i=>{total+=i.price*i.qty;count+=i.qty});document.getElementById('cartCount').textContent=count;document.getElementById('cartTotal').textContent=total;}
+function addWish(name){if(!wishlist.includes(name))wishlist.push(name);alert('Added to wishlist');}
+function openModal(id){document.getElementById(id).style.display='flex';}
+function closeModal(id){document.getElementById(id).style.display='none';}
+function openOrders(){document.getElementById('ordersBox').innerHTML=orders.length?orders.map(o=>`<div class='item'>${o}</div>`).join(''):'No orders yet';openModal('ordersModal');}
+function openWishlist(){document.getElementById('wishBox').innerHTML=wishlist.length?wishlist.map(w=>`<div class='item'>${w}</div>`).join(''):'Empty';openModal('wishlistModal');}
+function shareStore(){prompt('Copy your store link:',location.href);}
+function contactSupport(){window.open('https://wa.me/50237223083','_blank');}
+function openPayment(){if(cart.length===0){alert('Cart is empty');return;}openModal('paymentModal');}
+function finishPayment(){orders.push('Order completed: '+cart.length+' items');cart=[];updateCart();closeModal('paymentModal');alert('Payment completed');}
+function scrollToProducts(){document.getElementById('productsTitle').scrollIntoView({behavior:'smooth'});}
+function filterCategory(cat){document.getElementById('category').value=cat;renderProducts();scrollToProducts();}
+function saveAccount(){localStorage.setItem('name',document.getElementById('name').value);alert('Account saved');}
+function setDevice(mode){document.body.className=mode;}
 renderProducts();
 updateCart();
-updateRewards();
 </script>
 </body>
 </html>
