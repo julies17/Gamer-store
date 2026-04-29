@@ -106,7 +106,14 @@ function scrollToProducts(){document.getElementById('productsTitle').scrollIntoV
 function scrollToRaffles(){document.getElementById('raffles').scrollIntoView({behavior:'smooth'})}
 function unlock(name){const b=document.getElementById('achievements');if(!b.textContent.includes(name))b.innerHTML='<div class="item">🏅 '+name+'</div>'}
 function addReview(){const r=prompt('Write your review');if(r)toast('Review added')}
-let time=3600;setInterval(()=>{time--;const h=String(Math.floor(time/3600)).padStart(2,'0'),m=String(Math.floor((time%3600)/60)).padStart(2,'0'),s=String(time%60).padStart(2,'0');document.getElementById('countdown').textContent=h + ':' + m + ':' + s;},1000);
+let time=3600;
+setInterval(function(){
+  time--;
+  const h=String(Math.floor(time/3600)).padStart(2,'0');
+  const m=String(Math.floor((time%3600)/60)).padStart(2,'0');
+  const s=String(time%60).padStart(2,'0');
+  document.getElementById('countdown').textContent=h+':'+m+':'+s;
+},1000);
 renderProducts();updateCart();updateRewards();
 </script>
 </body>
