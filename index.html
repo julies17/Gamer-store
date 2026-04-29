@@ -27,13 +27,18 @@ nav{position:sticky;top:0;z-index:20;background:rgba(8,11,19,.95);backdrop-filte
 <section class="panel"><h2>🎟️ Coupon Center</h2><p>Use code: <b class="coupon">GAMER10</b></p><input id="coupon" placeholder="Enter coupon"><button class="primary" onclick="applyCoupon()">Apply Coupon</button></section>
 <section class="panel"><h2>🔥 Power Features</h2><button class="primary" onclick="spinWheel()">🎡 Spin Prize</button> <button class="primary" onclick="claimDailyReward()">🎰 Daily Reward</button> <button class="primary" onclick="openMysteryBox()">🎁 Mystery Box</button> <button class="primary" onclick="claimMission()">🎯 Mission</button> <button class="secondary" onclick="openAIHelper()">🤖 Ask Bot</button></section>
 <section class="panel"><h2>⏰ Mega Sale Countdown</h2><h2 class="count" id="countdown">01:00:00</h2></section>
-<h2 id="productsTitle">🔥 Products</h2><div class="tools"><input id="search" oninput="renderProducts()" placeholder="Search products..."><select id="category" onchange="renderProducts()"><option value="all">All categories</option><option value="Audio">Audio</option><option value="Accessories">Accessories</option><option value="Furniture">Furniture</option><option value="PC">PC</option><option value="Streaming">Streaming</option></select><select id="sort" onchange="renderProducts()"><option value="default">Sort</option><option value="low">Low to High</option><option value="high">High to Low</option></select></div><div class="products" id="products"></div>
+<h2 id="productsTitle">🔥 Products</h2><div class="tools"><input id="search" oninput="renderProducts()" placeholder="Search products..."><select id="category" onchange="renderProducts()"><option value="all">All categories</option><option value="Audio">Audio</option><option value="Accessories">Accessories</option><option value="Furniture">Furniture</option><option value="PC">PC</option><option value="Streaming">Streaming</option><option value="Consoles">Consoles</option><option value="Phones">Phones</option><option value="Games">Games</option></select><select id="sort" onchange="renderProducts()"><option value="default">Sort</option><option value="low">Low to High</option><option value="high">High to Low</option></select></div><div class="products" id="products"></div>
 <section class="panel" id="raffles"><h2>🎟️ Raffles</h2><div class="item">RGB Mouse Raffle <button class="secondary" onclick="joinRaffle('RGB Mouse Raffle')">Join</button></div><div class="item">Gaming Kit Raffle <button class="secondary" onclick="joinRaffle('Gaming Kit Raffle')">Join</button></div><div class="item">Mystery Prize Raffle <button class="secondary" onclick="joinRaffle('Mystery Prize Raffle')">Join</button></div></section>
 <section class="panel"><h2>🏆 Rewards</h2><div class="item">Points: <b id="points">0</b></div><div class="item">Level: <b id="level">1</b></div><div class="item">XP: <b id="xp">0</b></div><div id="achievements" class="item">No achievements yet.</div></section>
 <section class="panel"><h2>🚚 Tracking</h2><p>Last order: <b id="trackText">Preparing package</b></p><div class="tracking"><span id="trackBar"></span></div><button class="ghost" onclick="advanceTracking()">Advance Tracking</button></section>
 <section class="panel"><h2>⭐ Reviews</h2><button class="ghost" onclick="addReview()">Add Review</button><div id="reviews"><div class="item">⭐⭐⭐⭐⭐ Great store!</div><div class="item">⭐⭐⭐⭐⭐ Easy checkout.</div></div></section>
 <section class="panel"><h2>🤖 Support Bot</h2><div class="chat" id="chatBox"><div class="item">Bot: Hi! Ask me about products, coupons or shipping.</div></div><input id="chatInput" placeholder="Type a question..."><button class="secondary" onclick="botReply()">Send</button></section>
 <section class="panel"><h2>📢 Live Feed</h2><div id="liveFeed">Waiting for activity...</div></section>
+<section class="panel"><h2>🎮 Console Zone</h2><p>Find PlayStation-style, Xbox-style and portable consoles.</p><button class="primary" onclick="filterCategory('Consoles')">View Consoles</button></section>
+<section class="panel"><h2>📱 Mobile Zone</h2><p>Gaming phones, triggers, coolers, power banks and accessories.</p><button class="primary" onclick="filterCategory('Phones')">View Phones</button></section>
+<section class="panel"><h2>🧩 Build Your Setup</h2><p>Choose your type of setup and we show matching products.</p><button class="ghost" onclick="filterCategory('PC')">PC Setup</button> <button class="ghost" onclick="filterCategory('Streaming')">Streaming Setup</button> <button class="ghost" onclick="filterCategory('Audio')">Audio Setup</button></section>
+<section class="panel"><h2>🎮 Game Store</h2><p>Buy popular games for console and PC.</p><button class="primary" onclick="filterCategory('Games')">View Games</button></section>
+<section class="panel"><h2>🚀 New Arrivals</h2><div class="item">📱 Gaming Smartphone</div><div class="item">🎮 Portable Game Console</div><div class="item">🔋 Power Bank 20000mAh</div></section>
 </div></div>
 <button class="support" onclick="contactSupport()">💬</button>
 <div class="cartbar"><span>🛒 Items: <b id="cartCount">0</b></span><span>Total: Q<b id="cartTotal">0.00</b></span><button class="primary" onclick="openPayment()">💳 Pay</button></div>
@@ -59,7 +64,27 @@ const products=[
 {name:'VR Headset',price:3200,cat:'Accessories',img:'https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac'},
 {name:'Capture Card',price:780,cat:'Streaming',img:'https://images.unsplash.com/photo-1580894908361-967195033215'},
 {name:'Portable SSD',price:600,cat:'PC',img:'https://images.unsplash.com/photo-1591488320449-011701bb6704'},
-{name:'Gaming Glasses',price:220,cat:'Accessories',img:'https://images.unsplash.com/photo-1511499767150-a48a237f0083'}];
+{name:'Gaming Glasses',price:220,cat:'Accessories',img:'https://images.unsplash.com/photo-1511499767150-a48a237f0083'},
+{name:'PlayStation Style Console',price:4200,cat:'Consoles',img:'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3'},
+{name:'Xbox Style Console',price:3900,cat:'Consoles',img:'https://images.unsplash.com/photo-1621259182978-fbf93132d53d'},
+{name:'Portable Game Console',price:2600,cat:'Consoles',img:'https://images.unsplash.com/photo-1617096200347-cb04ae810b1d'},
+{name:'Gaming Smartphone',price:4800,cat:'Phones',img:'https://images.unsplash.com/photo-1598327105666-5b89351aff97'},
+{name:'Pro Smartphone',price:5200,cat:'Phones',img:'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9'},
+{name:'Phone Cooling Fan',price:190,cat:'Phones',img:'https://images.unsplash.com/photo-1609692814858-f7cd2f0afa4f'},
+{name:'Mobile Gaming Trigger',price:150,cat:'Phones',img:'https://images.unsplash.com/photo-1592840496694-26d035b52b48'},
+{name:'Power Bank 20000mAh',price:280,cat:'Phones',img:'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5'},
+{name:'Wireless Earbuds',price:360,cat:'Audio',img:'https://images.unsplash.com/photo-1590658268037-6bf12165a8df'},
+{name:'Smart Watch Gamer',price:750,cat:'Accessories',img:'https://images.unsplash.com/photo-1523275335684-37898b6baf30'},
+{name:'LED Strip RGB',price:110,cat:'Accessories',img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64'},
+{name:'Gaming Backpack',price:430,cat:'Accessories',img:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62'},
+{name:'Mini Projector',price:1100,cat:'Accessories',img:'https://images.unsplash.com/photo-1567450121326-28da379715f9'},
+{name:'Nintendo Style Handheld',price:3300,cat:'Consoles',img:'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae'},
+{name:'Action Battle Game',price:420,cat:'Games',img:'https://images.unsplash.com/photo-1511512578047-dfb367046420'},
+{name:'Racing Legends Game',price:350,cat:'Games',img:'https://images.unsplash.com/photo-1542751371-adc38448a05e'},
+{name:'Soccer Champions Game',price:390,cat:'Games',img:'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8'},
+{name:'Adventure Quest Game',price:450,cat:'Games',img:'https://images.unsplash.com/photo-1550745165-9bc0b252726f'},
+{name:'Survival Island Game',price:410,cat:'Games',img:'https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd'},
+{name:'Fighting Arena Game',price:430,cat:'Games',img:'https://images.unsplash.com/photo-1560253023-3ec5d502959f'}];
 let cart=JSON.parse(localStorage.getItem('cart')||'[]');let orders=JSON.parse(localStorage.getItem('orders')||'[]');let wishlist=JSON.parse(localStorage.getItem('wishlist')||'[]');let points=Number(localStorage.getItem('points')||0);let xp=Number(localStorage.getItem('xp')||0);let level=Number(localStorage.getItem('level')||1);let discount=false;let track=0;
 function save(){localStorage.setItem('cart',JSON.stringify(cart));localStorage.setItem('orders',JSON.stringify(orders));localStorage.setItem('wishlist',JSON.stringify(wishlist));localStorage.setItem('points',points);localStorage.setItem('xp',xp);localStorage.setItem('level',level)}
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',1500)}
@@ -67,26 +92,4 @@ function setDevice(mode){document.body.classList.remove('phone','tablet','deskto
 function renderProducts(){const q=document.getElementById('search').value.toLowerCase();const cat=document.getElementById('category').value;const sort=document.getElementById('sort').value;let list=products.filter(p=>p.name.toLowerCase().includes(q)&&(cat==='all'||p.cat===cat));if(sort==='low')list.sort((a,b)=>a.price-b.price);if(sort==='high')list.sort((a,b)=>b.price-a.price);const box=document.getElementById('products');box.innerHTML='';list.forEach(p=>{box.innerHTML+=`<div class="product"><span class="tag">${p.cat}</span><span class="heart" onclick="addWish('${p.name}')">♡</span><img src="${p.img}"><h3>${p.name}</h3><p class="price">Q${p.price}</p><button class="primary" onclick="addToCart('${p.name}',${p.price})">Add</button> <button class="ghost" onclick="buyNow('${p.name}',${p.price})">WhatsApp</button></div>`})}
 function addXP(n){xp+=n;if(xp>=100){xp=0;level++;toast('Level up 🚀')}updateRewards();save()}
 function updateRewards(){document.getElementById('points').textContent=points;document.getElementById('pointsView').textContent=points;document.getElementById('xp').textContent=xp;document.getElementById('level').textContent=level;document.getElementById('levelView').textContent=level}
-function addToCart(name,price){const item=cart.find(i=>i.name===name);if(item)item.qty++;else cart.push({name,price,qty:1});addXP(5);save();updateCart();toast('Added to cart 🛒')}
-function updateCart(){let total=cart.reduce((s,i)=>s+i.price*i.qty,0);if(discount)total*=0.9;document.getElementById('cartCount').textContent=cart.reduce((s,i)=>s+i.qty,0);document.getElementById('cartTotal').textContent=total.toFixed(2)}
-function addWish(name){if(!wishlist.includes(name))wishlist.push(name);save();toast('Saved ❤️')}
-function openWishlist(){document.getElementById('wishBox').innerHTML=wishlist.length?wishlist.map(x=>'<div class="item">❤️ '+x+'</div>').join(''):'Empty.';openModal('wishlistModal')}
-function applyCoupon(){const code=document.getElementById('coupon').value.trim().toUpperCase();if(code==='GAMER10'){discount=true;updateCart();toast('10% OFF applied')}else toast('Invalid coupon')}
-function autoCoupon(){document.getElementById('coupon').value='GAMER10';applyCoupon()}
-function spinWheel(){const a=['5% OFF','10% OFF','Free shipping','Try again'];toast('Prize: '+a[Math.floor(Math.random()*a.length)])}
-function claimDailyReward(){points+=25;unlock('Daily Collector');save();updateRewards();toast('+25 points')}
-function openMysteryBox(){points+=10;save();updateRewards();toast('Mystery reward: +10 points')}
-function claimMission(){addXP(20);toast('Mission completed')}
-function joinRaffle(name){window.open('https://wa.me/50237223083?text='+encodeURIComponent('Hello, I want to join '+name),'_blank')}
-function buyNow(name,price){window.open('https://wa.me/50237223083?text='+encodeURIComponent('Hello, I want to buy '+name+' for Q'+price),'_blank')}
-function openPayment(){if(!cart.length){alert('Cart is empty');return}openModal('paymentModal')}
-function finishPayment(){let total=document.getElementById('cartTotal').textContent;let order='Order:\n';cart.forEach(i=>order+=i.name+' x'+i.qty+'\n');order+='Total Q'+total;orders.push(order);cart=[];points+=50;save();updateCart();updateRewards();closeModal('paymentModal');alert('Payment completed');window.open('https://wa.me/50237223083?text='+encodeURIComponent(order),'_blank')}
-function openOrders(){document.getElementById('ordersBox').innerHTML=orders.length?orders.map(o=>'<div class="item">'+o+'</div>').join(''):'No orders yet.';openModal('ordersModal')}
-function saveAccount(){localStorage.setItem('name',document.getElementById('name').value);localStorage.setItem('email',document.getElementById('email').value);localStorage.setItem('address',document.getElementById('address').value);localStorage.setItem('payment',document.getElementById('payment').value);toast('Account saved')}
-function openProfile(){document.getElementById('profileBox').innerHTML='<div class="item">Name: '+(localStorage.getItem('name')||'Unknown')+'</div><div class="item">Email: '+(localStorage.getItem('email')||'Unknown')+'</div><div class="item">Points: '+points+'</div><div class="item">Level: '+level+'</div>';openModal('profileModal')}
-function toggleTheme(){document.body.classList.toggle('light')}
-function changeLang(){const lang=document.getElementById('lang').value;document.querySelectorAll('[data-en]').forEach(el=>el.textContent=el.dataset[lang])}
-function contactSupport(){window.open('https://wa.me/50237223083?text='+encodeURIComponent('Hello, I need help with Gamer Store Ultra Pro Max'),'_blank')}
-function shareStore(){if(navigator.share)navigator.share({title:'Gamer Store Ultra Pro Max',text:'Check out my store',url:location.href});else{navigator.clipboard?.writeText(location.href);toast('Link copied')}}
-function openModal(id){document.getElementById(id).style.display='flex'}
-function closeModal(id){document.getElementById(id).sty
+function addToCart(name,price){const item=cart.find(i=>i
