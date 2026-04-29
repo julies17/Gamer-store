@@ -22,7 +22,7 @@ nav{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-w
 @media(max-width:760px){.featured{grid-template-columns:1fr}.hero h1{font-size:31px}.products{grid-template-columns:1fr 1fr}.product img{height:125px}.cartbar{font-size:13px}}
 </style>
 </head>
-<body><button onclick="alert('SI FUNCIONA')">PRUEBA</button>
+<body>
 <div class="toast" id="toast">Done</div>
 <div class="topbar">⚡ Flash Sale | Use GAMER10 | Support 24/7</div>
 <div class="device"><button class="ghost" onclick="setDevice('desktop')">💻 Computer</button><button class="ghost" onclick="setDevice('tablet')">📱 Tablet</button><button class="ghost" onclick="setDevice('phone')">📲 Phone</button></div>
@@ -110,4 +110,11 @@ function openOrders(){document.getElementById('ordersBox').innerHTML=orders.leng
 function saveAccount(){localStorage.setItem('name',document.getElementById('name').value);localStorage.setItem('email',document.getElementById('email').value);localStorage.setItem('address',document.getElementById('address').value);localStorage.setItem('payment',document.getElementById('payment').value);toast('Account saved')}
 function openProfile(){document.getElementById('profileBox').innerHTML='<div class="item">Name: '+(localStorage.getItem('name')||'Unknown')+'</div><div class="item">Email: '+(localStorage.getItem('email')||'Unknown')+'</div><div class="item">Points: '+points+'</div><div class="item">Level: '+level+'</div>';openModal('profileModal')}
 function toggleTheme(){document.body.classList.toggle('light')}
-function changeLang(){var lang=document.getElementById('lang').value;document.querySelectorAll('[data-en]').forEach(function(el){el.textContent=e
+function changeLang(){var lang=document.getElementById('lang').value;document.querySelectorAll('[data-en]').forEach(function(el){el.textContent=el.getAttribute('data-'+lang)})}
+
+renderProducts();
+updateCart();
+updateRewards();
+</script>
+</body>
+</html>
