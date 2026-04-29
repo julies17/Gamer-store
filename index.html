@@ -5,62 +5,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gamer Store Ultra</title>
 <style>
-*{box-sizing:border-box;scroll-behavior:smooth}
-:root{--bg:#0b0d12;--card:#151922;--text:#fff;--muted:#b9c0cc;--purple:#8a2be2;--green:#00ff88;--yellow:#ffcc00}
-body.light{--bg:#f5f7fb;--card:#ffffff;--text:#111;--muted:#444;--purple:#6c35ff;--green:#008f55;--yellow:#d49b00}
+*{box-sizing:border-box}
+:root{--bg:#080a10;--card:#151922;--text:#ffffff;--purple:#8a2be2;--green:#00ff88;--yellow:#ffcc00}
+body.light{--bg:#f4f6fb;--card:#ffffff;--text:#111111;--purple:#6a35ff;--green:#008f55;--yellow:#c59100}
 body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);padding-bottom:90px}
-.device-controls{position:sticky;top:0;z-index:50;background:#080a0f;padding:10px;display:flex;justify-content:center;gap:8px;border-bottom:1px solid var(--purple);flex-wrap:wrap}
-.device-controls button{width:auto;padding:9px 12px}
-#appWrap{max-width:1200px;margin:auto;transition:.3s}
-body.tablet #appWrap,body.tablet .cart{max-width:768px;margin:auto;left:0;right:0}
-body.phone #appWrap,body.phone .cart{max-width:390px;margin:auto;left:0;right:0}
-body.phone .hero,body.tablet .hero{grid-template-columns:1fr}
-body.phone .products{grid-template-columns:1fr}
-body.tablet .products{grid-template-columns:1fr 1fr}
-header{padding:18px 20px;background:linear-gradient(90deg,#111,#1d1033);position:sticky;top:54px;z-index:10;box-shadow:0 4px 20px rgba(0,0,0,.4)}
-.nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.logo{font-size:26px;font-weight:900}.nav button,.nav select{width:auto}.cover{min-height:430px;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.75)),url('ChatGPT Image 23 abr 2026, 08_49_30 a.m..png');background-size:cover;background-position:center;border-bottom:2px solid var(--purple)}.cover-content{max-width:850px;padding:35px;background:rgba(0,0,0,.45);border:1px solid rgba(138,43,226,.7);border-radius:24px;box-shadow:0 0 35px rgba(138,43,226,.45);backdrop-filter:blur(8px)}.cover h1{font-size:48px;margin:0;color:#fff;text-shadow:0 0 18px var(--purple)}.cover p{font-size:18px;color:#e6e6e6}.cover-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}.container{max-width:1200px;margin:auto;padding:20px}.hero{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}.hero img{width:100%;border-radius:20px;background:#111;padding:20px}.card,.panel{background:var(--card);padding:20px;border-radius:20px;box-shadow:0 0 18px rgba(138,43,226,.25);margin:18px 0}.price{font-size:35px;font-weight:bold;color:var(--green)}.old{color:#999;text-decoration:line-through}button{padding:12px 16px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;transition:.2s}.primary{background:var(--purple);color:white}.whatsapp{background:#00b85c;color:white}.ghost{background:transparent;color:var(--green);border:1px solid var(--green)}button:hover{transform:scale(1.04)}input,select{padding:12px;border-radius:12px;border:1px solid #444;background:#0d1017;color:white;width:100%;margin:6px 0}body.light input,body.light select{background:white;color:#111}.level-banner,.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:20px auto;max-width:1200px}.level-card,.stat{background:linear-gradient(180deg,#181b25,#0d1018);border:1px solid rgba(0,255,136,.45);border-radius:18px;padding:16px;text-align:center;box-shadow:0 0 18px rgba(0,255,136,.18)}.level-card strong,.stat strong{display:block;font-size:24px;color:var(--green)}.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-top:20px}.product{background:var(--card);padding:15px;border-radius:20px;text-align:center;position:relative}.product img{width:100%;height:170px;object-fit:cover;border-radius:15px}.heart{position:absolute;right:15px;top:15px;font-size:24px;cursor:pointer}.cart{position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;padding:14px;border-top:2px solid var(--purple);display:flex;justify-content:space-around;align-items:center;z-index:20}.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:30;align-items:center;justify-content:center;padding:20px}.modal-content{background:var(--card);color:var(--text);padding:22px;border-radius:20px;max-width:430px;width:100%;max-height:85vh;overflow:auto}.list-item{padding:10px;border-bottom:1px solid #333}.badge{display:inline-block;background:var(--yellow);color:#000;padding:5px 8px;border-radius:8px;font-size:12px;margin:4px}.toast{position:fixed;top:95px;right:20px;background:var(--purple);color:#fff;padding:12px 18px;border-radius:12px;display:none;z-index:40}.support{position:fixed;right:18px;bottom:95px;background:var(--green);color:#000;border-radius:50%;width:58px;height:58px;font-size:26px;z-index:25}.tracking{height:10px;background:#333;border-radius:10px;overflow:hidden}.tracking span{display:block;height:100%;width:65%;background:var(--green)}@media(max-width:750px){header{top:92px}.cover{min-height:360px}.cover h1{font-size:34px}.cover-content{margin:15px;padding:22px}.hero{grid-template-columns:1fr}.cart{font-size:13px}.products{grid-template-columns:1fr 1fr}.product img{height:120px}}
+.device{position:sticky;top:0;z-index:20;background:#080a10;padding:10px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;border-bottom:2px solid var(--purple)}
+button{border:none;border-radius:12px;padding:11px 14px;font-weight:bold;cursor:pointer}.primary{background:var(--purple);color:white}.green{background:var(--green);color:black}.ghost{background:transparent;color:var(--green);border:1px solid var(--green)}
+#wrap{max-width:1200px;margin:auto}.tablet #wrap{max-width:760px}.phone #wrap{max-width:390px}.phone .products{grid-template-columns:1fr}.tablet .products{grid-template-columns:1fr 1fr}
+nav{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:15px 20px;background:#111421;border-bottom:1px solid var(--purple)}
+.logo{font-size:26px;font-weight:900;color:var(--green)}
+.hero{min-height:380px;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.75)),url('ChatGPT Image 23 abr 2026, 08_49_30 a.m..png');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px}
+.hero-box{background:rgba(0,0,0,.55);border:1px solid var(--purple);border-radius:22px;padding:25px;max-width:760px;box-shadow:0 0 30px rgba(138,43,226,.45)}
+.hero h1{font-size:42px;margin:0;color:white}.container{padding:18px}.panel,.product{background:var(--card);border-radius:18px;padding:16px;margin:16px 0;box-shadow:0 0 18px rgba(138,43,226,.25)}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}.feature img{width:100%;border-radius:18px;background:#111;padding:15px}.price{color:var(--green);font-size:30px;font-weight:bold}.old{text-decoration:line-through;color:#999;font-size:18px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}.product{text-align:center;position:relative}.product img{width:100%;height:165px;object-fit:cover;border-radius:14px}.heart{position:absolute;top:15px;right:18px;font-size:24px;cursor:pointer}.badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}.badge{background:#10131a;border:1px solid var(--yellow);color:var(--yellow);border-radius:16px;padding:15px;text-align:center;cursor:pointer;font-weight:bold}.badge:hover{box-shadow:0 0 18px var(--yellow)}
+input,select{width:100%;padding:12px;border-radius:12px;border:1px solid #444;background:#0d1017;color:white;margin:6px 0}.light input,.light select{background:white;color:#111}
+.cartbar{position:fixed;bottom:0;left:0;right:0;background:#111;color:white;border-top:2px solid var(--purple);display:flex;justify-content:space-around;align-items:center;padding:12px;z-index:20}.toast{display:none;position:fixed;right:18px;top:80px;background:var(--purple);color:white;padding:12px 16px;border-radius:12px;z-index:50}.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:40;align-items:center;justify-content:center;padding:20px}.modal-content{background:var(--card);color:var(--text);border:2px solid var(--purple);border-radius:20px;padding:20px;max-width:420px;width:100%;max-height:85vh;overflow:auto}.item{border-bottom:1px solid #333;padding:9px}.support{position:fixed;right:18px;bottom:95px;width:58px;height:58px;border-radius:50%;font-size:26px;background:var(--green);z-index:22}.tracking{height:10px;background:#333;border-radius:10px;overflow:hidden}.tracking span{display:block;height:100%;width:65%;background:var(--green)}
+@media(max-width:750px){.feature{grid-template-columns:1fr}.hero h1{font-size:32px}.products{grid-template-columns:1fr 1fr}.product img{height:125px}.cartbar{font-size:13px}}
 </style>
 </head>
 <body>
 <div class="toast" id="toast">Done</div>
-<div class="device-controls"><button onclick="setDevice('desktop')">💻 Computer</button><button onclick="setDevice('tablet')">📱 Tablet</button><button onclick="setDevice('phone')">📲 Phone</button></div>
-<div id="appWrap">
-<header><div class="nav"><div class="logo">🎮 Gamer Store Ultra</div><select id="lang" onchange="changeLang()"><option value="en">English</option><option value="es">Español</option></select><button class="ghost" onclick="toggleTheme()">🌗 Theme</button><button class="ghost" onclick="openModal('loginModal')">👤 Account</button><button class="ghost" onclick="openModal('ordersModal')">📦 Orders</button><button class="ghost" onclick="shareStore()">📤 Share</button><button class="ghost" onclick="showWishlist()">❤️ Wishlist</button></div></header>
-<section class="cover"><div class="cover-content"><h1>🎮 GAMER STORE ULTRA</h1><p>Premium gaming products, RGB style, exclusive offers, raffles, coupons, and WhatsApp checkout.</p><div class="cover-buttons"><button class="primary" onclick="scrollToProducts()">Shop Now</button><button class="whatsapp" onclick="contactSupport()">Contact Us</button></div></div></section>
-<div class="level-banner"><div class="level-card"><strong>+20</strong>Products</div><div class="level-card"><strong>10%</strong>Coupon GAMER10</div><div class="level-card"><strong>24/7</strong>WhatsApp Support</div><div class="level-card"><strong>Fast</strong>Online Orders</div></div>
+<div class="device"><button class="ghost" onclick="setDevice('desktop')">💻 Computer</button><button class="ghost" onclick="setDevice('tablet')">📱 Tablet</button><button class="ghost" onclick="setDevice('phone')">📲 Phone</button></div>
+<div id="wrap">
+<nav><div class="logo">🎮 Gamer Store Ultra</div><select id="lang" onchange="changeLang()"><option value="en">English</option><option value="es">Español</option></select><button class="ghost" onclick="toggleTheme()">🌗 Theme</button><button class="ghost" onclick="openModal('accountModal')">👤 Account</button><button class="ghost" onclick="openOrders()">📦 Orders</button><button class="ghost" onclick="shareStore()">📤 Share</button><button class="ghost" onclick="openWishlist()">❤️ Wishlist</button></nav>
+<section class="hero"><div class="hero-box"><h1 data-en="GAMER STORE ULTRA" data-es="TIENDA GAMER ULTRA">GAMER STORE ULTRA</h1><p data-en="Premium gaming products, coupons, rewards and WhatsApp checkout." data-es="Productos gamer, cupones, recompensas y compras por WhatsApp.">Premium gaming products, coupons, rewards and WhatsApp checkout.</p><button class="primary" onclick="scrollToProducts()">Shop Now</button> <button class="green" onclick="contactSupport()">Contact Us</button></div></section>
 <div class="container">
-<section class="hero"><img src="Screenshot_20260427-180010-display-0.png.png" alt="Speaker Product"><div class="card"><span class="badge">HOT OFFER</span><h1 data-en="Bluetooth Gamer RGB Speaker 360°" data-es="Bocina Bluetooth Gamer RGB 360°">Bluetooth Gamer RGB Speaker 360°</h1><p data-en="Powerful RGB speaker with immersive 360° sound for your gaming setup." data-es="Bocina RGB potente con sonido 360° para tu setup gamer.">Powerful RGB speaker with immersive 360° sound for your gaming setup.</p><p class="price">Q399 <span class="old">Q599</span></p><button class="primary" onclick="addToCart('Bluetooth Gamer RGB Speaker',399)">🛒 Add to Cart</button> <button class="whatsapp" onclick="buyNow('Bluetooth Gamer RGB Speaker',399)">📱 WhatsApp</button></div></section>
-<section class="panel"><h2>🎟️ Coupon Code</h2><p>Try: <b>GAMER10</b></p><input id="coupon" placeholder="Enter coupon"><button class="primary" onclick="applyCoupon()">Apply Coupon</button></section>
-<section class="panel"><h2>🔥 Flash Offers</h2><p>Weekend sale active. Save more with bundles and coupons.</p><button class="primary" onclick="activateOffer()">Activate Offer</button> <button class="ghost" onclick="spinWheel()">🎡 Spin for Prize</button></section>
-<section class="panel"><h2>🏆 Loyalty Rewards</h2><div class="list-item">Current Points: <b id="points">0</b></div></section>
-<section class="panel"><h2>⏰ Limited Countdown</h2><p>Next mega-sale starts in:</p><h3 id="countdown">01:00:00</h3></section>
-<section class="panel"><h2>📊 Top Sellers</h2><div id="topSellers">Loading...</div></section>
-<section class="panel"><h2>🎯 Daily Missions</h2><div class="list-item">Buy 2 products and unlock a surprise coupon.</div><button class="primary" onclick="claimMission()">Claim Mission</button></section>
-<section class="panel"><h2>🎁 Mystery Box</h2><p>Open a random gamer reward box.</p><button class="primary" onclick="openMysteryBox()">Open Box</button></section>
-<section class="panel"><h2>⚔️ Level System</h2><div class="list-item">Store Level: <b id="storeLevel">1</b></div><div class="list-item">XP: <b id="storeXP">0</b></div></section>
-<section class="panel"><h2>📢 Live Notifications</h2><div id="liveFeed">Nobody has purchased yet...</div></section>
-<section class="panel"><h2>🎉 Giveaway Events</h2><p>Join monthly giveaways and win gamer gear.</p><button class="primary" onclick="joinGiveaway()">Join Giveaway</button></section>
-<section class="panel"><h2>🎰 Daily Reward</h2><p>Claim your free daily reward.</p><button class="primary" onclick="claimDailyReward()">Claim Reward</button></section>
-<section class="panel"><h2>🏅 Achievement Badges</h2><div id="achievementBox">No achievements unlocked.</div></section>
-<section class="panel"><h2>📈 Price Drop Alerts</h2><p>Turn on alerts for discounts.</p><button class="primary" onclick="activatePriceAlerts()">Activate Alerts</button></section>
-<section class="panel"><h2>🤝 Referral System</h2><p>Invite friends and earn bonus points.</p><button class="primary" onclick="shareReferral()">Share Referral</button></section>
-<section class="panel"><h2>🎨 Customize Store Theme</h2><button class="primary" onclick="randomTheme()">Random Theme</button></section>
+<div class="badges"><div class="badge" onclick="scrollToProducts()">⭐ Quality Products</div><div class="badge" onclick="scrollToRaffles()">🎟️ Raffles</div><div class="badge" onclick="applyAutoCoupon()">🏷️ Offers</div><div class="badge" onclick="contactSupport()">💛 Support</div></div>
+<section class="panel feature"><img src="Screenshot_20260427-180010-display-0.png.png" alt="Speaker"><div><span style="background:var(--yellow);color:black;padding:5px 8px;border-radius:8px">HOT</span><h2>Bluetooth Gamer RGB Speaker 360°</h2><p>RGB speaker with powerful 360° sound.</p><p class="price">Q399 <span class="old">Q599</span></p><button class="primary" onclick="addToCart('Bluetooth Gamer RGB Speaker',399)">🛒 Add to Cart</button> <button class="green" onclick="buyNow('Bluetooth Gamer RGB Speaker',399)">📱 WhatsApp</button></div></section>
+<section class="panel"><h2>🎟️ Coupon</h2><p>Use code: <b>GAMER10</b></p><input id="coupon" placeholder="Enter coupon"><button class="primary" onclick="applyCoupon()">Apply Coupon</button></section>
+<section class="panel"><h2>🔥 Game Features</h2><button class="primary" onclick="spinWheel()">🎡 Spin Prize</button> <button class="primary" onclick="claimDailyReward()">🎰 Daily Reward</button> <button class="primary" onclick="openMysteryBox()">🎁 Mystery Box</button> <button class="primary" onclick="claimMission()">🎯 Mission</button></section>
+<section class="panel"><h2>🏆 Rewards</h2><div class="item">Points: <b id="points">0</b></div><div class="item">Level: <b id="level">1</b></div><div class="item">XP: <b id="xp">0</b></div><div id="achievements" class="item">No achievements yet.</div></section>
+<section class="panel"><h2>⏰ Countdown</h2><h3 id="countdown">01:00:00</h3></section>
 <h2 id="productsTitle">🔥 Products</h2><input id="search" oninput="renderProducts()" placeholder="Search products..."><div class="products" id="products"></div>
-<section class="panel"><h2>🏪 Categories</h2><div class="list-item">🎧 Audio Gear</div><div class="list-item">🖱️ Accessories</div><div class="list-item">🖥️ PC Components</div><div class="list-item">🎮 Consoles & Controllers</div><div class="list-item">📹 Streaming Setup</div></section>
-<section class="panel"><h2>🎊 Special Bundles</h2><div class="list-item">Starter Pack: Headset + Mouse + Keyboard</div><div class="list-item">Streamer Pack: Microphone + Webcam + Capture Card</div><button class="primary" onclick="activateBundle()">Get Bundle</button></section>
-<section class="panel"><h2>📍 Store Locations</h2><div class="list-item">Guatemala City</div><div class="list-item">Mixco</div><div class="list-item">Online Delivery Nationwide</div></section>
-<section class="panel"><h2>⭐ Customer Reviews</h2><button class="ghost" onclick="addReview()">✍️ Add Review</button><div class="list-item">⭐⭐⭐⭐⭐ Fast service and cool products!</div><div class="list-item">⭐⭐⭐⭐⭐ The page looks professional.</div><div class="list-item">⭐⭐⭐⭐⭐ Great prices and easy WhatsApp checkout.</div></section>
-<section class="panel"><h2>🚚 Order Tracking</h2><p>Your last order status: <b>Preparing package</b></p><div class="tracking"><span></span></div><p>Estimated progress: 65%</p></section>
-</div></div>
+<section class="panel" id="raffles"><h2>🎟️ Raffles</h2><div class="item">RGB Mouse Raffle <button class="green" onclick="joinRaffle('RGB Mouse Raffle')">Join</button></div><div class="item">Gaming Kit Raffle <button class="green" onclick="joinRaffle('Gaming Kit Raffle')">Join</button></div></section>
+<section class="panel"><h2>📊 Top Sellers</h2><div class="item">🥇 Gaming Headset</div><div class="item">🥈 RGB Mouse</div><div class="item">🥉 Bluetooth Speaker</div></section>
+<section class="panel"><h2>⭐ Reviews</h2><button class="ghost" onclick="addReview()">Add Review</button><div class="item">⭐⭐⭐⭐⭐ Great store!</div><div class="item">⭐⭐⭐⭐⭐ Easy checkout.</div></section>
+<section class="panel"><h2>🚚 Tracking</h2><p>Last order: Preparing package</p><div class="tracking"><span></span></div></section>
+</div>
+</div>
 <button class="support" onclick="contactSupport()">💬</button>
-<div class="cart"><span>🛒 Items: <b id="cartCount">0</b></span><span>Total: Q<b id="cartTotal">0.00</b></span><button class="primary" onclick="openPayment()">💳 Pay</button></div>
-<div class="modal" id="loginModal"><div class="modal-content"><h2>👤 User Account</h2><input id="userName" placeholder="Your name"><input id="userEmail" placeholder="Email"><input id="userPassword" type="password" placeholder="Password"><input id="userAddress" placeholder="Shipping address"><input id="userPayment" placeholder="Preferred payment method"><input id="userPhoto" placeholder="Profile photo URL (optional)"><button class="primary" onclick="saveUser()">Save Account</button><br><br><button class="ghost" onclick="openProfile()">View Profile</button><br><br><button onclick="closeModal('loginModal')">Close</button></div></div>
-<div class="modal" id="profileModal"><div class="modal-content"><h2>🏆 My Profile</h2><div id="profileBox">No profile yet.</div><br><button onclick="closeModal('profileModal')">Close</button></div></div>
-<div class="modal" id="ordersModal"><div class="modal-content"><h2>📦 Order History</h2><div id="ordersList">No orders yet.</div><br><button onclick="closeModal('ordersModal')">Close</button></div></div>
-<div class="modal" id="wishlistModal"><div class="modal-content"><h2>❤️ Wishlist</h2><div id="wishList">Empty wishlist.</div><br><button onclick="closeModal('wishlistModal')">Close</button></div></div>
-<div class="modal" id="paymentModal"><div class="modal-content"><h2>💳 Simulated Payment</h2><input id="payName" placeholder="Name on card"><input id="payCard" placeholder="Card number (simulation)"><button class="primary" onclick="finishPayment()">Complete Payment</button><br><br><button onclick="closeModal('paymentModal')">Cancel</button></div></div>
+<div class="cartbar"><span>Items: <b id="cartCount">0</b></span><span>Total: Q<b id="cartTotal">0.00</b></span><button class="primary" onclick="openPayment()">💳 Pay</button></div>
+<div class="modal" id="accountModal"><div class="modal-content"><h2>👤 Account</h2><input id="name" placeholder="Name"><input id="email" placeholder="Email"><input id="password" type="password" placeholder="Password"><input id="address" placeholder="Address"><input id="payment" placeholder="Payment method"><button class="primary" onclick="saveAccount()">Save</button> <button onclick="openProfile()">Profile</button> <button onclick="closeModal('accountModal')">Close</button></div></div>
+<div class="modal" id="profileModal"><div class="modal-content"><h2>🏆 Profile</h2><div id="profileBox"></div><button onclick="closeModal('profileModal')">Close</button></div></div>
+<div class="modal" id="ordersModal"><div class="modal-content"><h2>📦 Orders</h2><div id="ordersBox">No orders yet.</div><button onclick="closeModal('ordersModal')">Close</button></div></div>
+<div class="modal" id="wishlistModal"><div class="modal-content"><h2>❤️ Wishlist</h2><div id="wishBox">Empty.</div><button onclick="closeModal('wishlistModal')">Close</button></div></div>
+<div class="modal" id="paymentModal"><div class="modal-content"><h2>💳 Payment Simulation</h2><input id="cardName" placeholder="Name"><input id="cardNumber" placeholder="Card number"><button class="primary" onclick="finishPayment()">Complete Payment</button> <button onclick="closeModal('paymentModal')">Cancel</button></div></div>
 <script>
-let products=[
+const products=[
 {name:'Bluetooth Gamer RGB Speaker',price:399,img:'Screenshot_20260427-180010-display-0.png.png'},
 {name:'Gaming Headset',price:300,img:'https://images.unsplash.com/photo-1585298723682-7115561c51b7'},
 {name:'RGB Mouse',price:250,img:'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7'},
@@ -72,54 +64,51 @@ let products=[
 {name:'Mouse Pad XL',price:120,img:'https://images.unsplash.com/photo-1616627458018-4d3bdf8c56f2'},
 {name:'Gaming Speakers',price:500,img:'https://images.unsplash.com/photo-1545454675-3531b543be5d'},
 {name:'RGB PC Case',price:950,img:'https://images.unsplash.com/photo-1587202372634-32705e3bf49c'},
-{name:'Gaming Laptop',price:5500,img:'https://images.unsplash.com/photo-1517336714739-489689fd1ca8'},
-{name:'Streaming Deck',price:850,img:'https://images.unsplash.com/photo-1579370318443-8da816457c11'},
-{name:'VR Headset',price:3200,img:'https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac'},
-{name:'Gaming Router',price:650,img:'https://images.unsplash.com/photo-1647427060118-4911c9821b82'},
-{name:'RGB Gaming Desk',price:1700,img:'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85'},
-{name:'Capture Card',price:780,img:'https://images.unsplash.com/photo-1580894908361-967195033215'},
-{name:'Portable SSD',price:600,img:'https://images.unsplash.com/photo-1591488320449-011701bb6704'},
-{name:'Gaming Glasses',price:220,img:'https://images.unsplash.com/photo-1511499767150-a48a237f0083'}
+{name:'Gaming Laptop',price:5500,img:'https://images.unsplash.com/photo-1517336714739-489689fd1ca8'}
 ];
-
-let cart=JSON.parse(localStorage.getItem('cart'))||[];
-let orders=JSON.parse(localStorage.getItem('orders'))||[];
-let wishlist=JSON.parse(localStorage.getItem('wishlist'))||[];
-let points=parseInt(localStorage.getItem('points'))||0;
-let storeXP=parseInt(localStorage.getItem('storeXP'))||0;
-let storeLevel=parseInt(localStorage.getItem('storeLevel'))||1;
-let discount=0;
-let countdownStarted=false;
-
-function save(){
-localStorage.setItem('cart',JSON.stringify(cart));
-localStorage.setItem('orders',JSON.stringify(orders));
-localStorage.setItem('wishlist',JSON.stringify(wishlist));
-localStorage.setItem('points',points);
-localStorage.setItem('storeXP',storeXP);
-localStorage.setItem('storeLevel',storeLevel);
-}
-function toast(msg){let t=document.getElementById('toast');if(!t)return; t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',1400)}
-function setDevice(device){document.body.classList.remove('desktop','tablet','phone');document.body.classList.add(device);toast('View changed to '+device)}
-function renderProducts(){let search=document.getElementById('search');let q=search?search.value.toLowerCase():'';let box=document.getElementById('products');if(!box)return;box.innerHTML='';products.filter(p=>p.name.toLowerCase().includes(q)).forEach(p=>{box.innerHTML+=`<div class="product"><span class="heart" onclick="addWish('${p.name}')">♡</span><img src="${p.img}"><h3>${p.name}</h3><p class="price">Q${p.price}</p><button class="primary" onclick="addToCart('${p.name}',${p.price})">Add</button> <button class="ghost" onclick="buyNow('${p.name}',${p.price})">WhatsApp</button></div>`})}
-function addToCart(name,price){let item=cart.find(i=>i.name===name);if(item){item.qty++}else{cart.push({name,price,qty:1})}addXP(5);save();updateCart();toast('Added to cart 🛒')}
-function updateCart(){let total=cart.reduce((s,i)=>s+i.price*i.qty,0);if(discount){total*=0.9}let count=cart.reduce((s,i)=>s+i.qty,0);let cartCount=document.getElementById('cartCount');let cartTotal=document.getElementById('cartTotal');if(cartCount)cartCount.textContent=count;if(cartTotal)cartTotal.textContent=total.toFixed(2)}
-function addWish(name){if(!wishlist.includes(name)){wishlist.push(name)}save();toast('Added to wishlist ❤️')}
-function showWishlist(){let box=document.getElementById('wishList');if(box){box.innerHTML=wishlist.length?wishlist.map(w=>'<div class="list-item">❤️ '+w+'</div>').join(''):'Empty wishlist.'}openModal('wishlistModal')}
-function applyCoupon(){let input=document.getElementById('coupon');let code=input?input.value.toUpperCase():'';if(code==='GAMER10'){discount=10;toast('10% discount applied 🎟️');updateCart()}else{toast('Invalid coupon ❌')}}
-function activateOffer(){toast('Flash offer activated 🔥')}
-function spinWheel(){const prizes=['5% OFF','10% OFF','Free Shipping','Lucky Try Again'];toast('Prize: '+prizes[Math.floor(Math.random()*prizes.length)]+' 🎉')}
-function claimMission(){toast('Mission completed 🎯 +20 XP');addXP(20)}
-function openMysteryBox(){const rewards=['Coupon 5% OFF','Free Shipping','50 Points','Lucky Item'];toast('Mystery reward: '+rewards[Math.floor(Math.random()*rewards.length)]+' 🎁')}
-function joinGiveaway(){toast('You joined the giveaway 🎉')}
-function claimDailyReward(){points+=25;save();let p=document.getElementById('points');if(p)p.textContent=points;toast('Daily reward claimed 🎰 +25 points');unlockAchievement('Daily Collector')}
-function activatePriceAlerts(){toast('Price alerts activated 📈')}
-function shareReferral(){if(navigator.clipboard){navigator.clipboard.writeText(window.location.href)}toast('Referral copied 🤝')}
-function randomTheme(){document.body.style.filter='hue-rotate('+(Math.floor(Math.random()*360))+'deg)';toast('Theme changed 🎨')}
-function unlockAchievement(name){let box=document.getElementById('achievementBox');if(!box)return;if(box.textContent.includes(name))return;if(box.textContent.includes('No achievements'))box.innerHTML='';box.innerHTML+='<div class="list-item">🏅 '+name+'</div>'}
-function addXP(amount){storeXP+=amount;if(storeXP>=100){storeXP=0;storeLevel++;toast('Level up! 🚀 Level '+storeLevel)}let xp=document.getElementById('storeXP');let lvl=document.getElementById('storeLevel');if(xp)xp.textContent=storeXP;if(lvl)lvl.textContent=storeLevel;save()}
+let cart=JSON.parse(localStorage.getItem('cart')||'[]');
+let orders=JSON.parse(localStorage.getItem('orders')||'[]');
+let wishlist=JSON.parse(localStorage.getItem('wishlist')||'[]');
+let points=Number(localStorage.getItem('points')||0);
+let xp=Number(localStorage.getItem('xp')||0);
+let level=Number(localStorage.getItem('level')||1);
+let discount=false;
+function save(){localStorage.setItem('cart',JSON.stringify(cart));localStorage.setItem('orders',JSON.stringify(orders));localStorage.setItem('wishlist',JSON.stringify(wishlist));localStorage.setItem('points',points);localStorage.setItem('xp',xp);localStorage.setItem('level',level)}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',1500)}
+function setDevice(mode){document.body.className=mode;toast('View: '+mode)}
+function renderProducts(){const q=(document.getElementById('search')?.value||'').toLowerCase();const box=document.getElementById('products');box.innerHTML='';products.filter(p=>p.name.toLowerCase().includes(q)).forEach(p=>{box.innerHTML+=`<div class="product"><span class="heart" onclick="addWish('${p.name}')">♡</span><img src="${p.img}"><h3>${p.name}</h3><p class="price">Q${p.price}</p><button class="primary" onclick="addToCart('${p.name}',${p.price})">Add</button> <button class="ghost" onclick="buyNow('${p.name}',${p.price})">WhatsApp</button></div>`})}
+function addXP(n){xp+=n;if(xp>=100){xp=0;level++;toast('Level up 🚀')}updateRewards();save()}
+function updateRewards(){document.getElementById('points').textContent=points;document.getElementById('xp').textContent=xp;document.getElementById('level').textContent=level}
+function addToCart(name,price){const item=cart.find(i=>i.name===name);if(item)item.qty++;else cart.push({name,price,qty:1});addXP(5);save();updateCart();toast('Added to cart 🛒')}
+function updateCart(){let total=cart.reduce((s,i)=>s+i.price*i.qty,0);if(discount)total*=0.9;document.getElementById('cartCount').textContent=cart.reduce((s,i)=>s+i.qty,0);document.getElementById('cartTotal').textContent=total.toFixed(2)}
+function addWish(name){if(!wishlist.includes(name))wishlist.push(name);save();toast('Saved ❤️')}
+function openWishlist(){document.getElementById('wishBox').innerHTML=wishlist.length?wishlist.map(x=>'<div class="item">❤️ '+x+'</div>').join(''):'Empty.';openModal('wishlistModal')}
+function applyCoupon(){const code=document.getElementById('coupon').value.trim().toUpperCase();if(code==='GAMER10'){discount=true;updateCart();toast('10% OFF applied')}else toast('Invalid coupon')}
+function applyAutoCoupon(){document.getElementById('coupon').value='GAMER10';applyCoupon()}
+function spinWheel(){const a=['5% OFF','10% OFF','Free shipping','Try again'];toast('Prize: '+a[Math.floor(Math.random()*a.length)])}
+function claimDailyReward(){points+=25;unlock('Daily Collector');save();updateRewards();toast('+25 points')}
+function openMysteryBox(){points+=10;save();updateRewards();toast('Mystery reward: +10 points')}
+function claimMission(){addXP(20);toast('Mission completed')}
+function joinRaffle(name){window.open('https://wa.me/50237223083?text='+encodeURIComponent('Hello, I want to join '+name),'_blank')}
 function buyNow(name,price){window.open('https://wa.me/50237223083?text='+encodeURIComponent('Hello, I want to buy '+name+' for Q'+price),'_blank')}
-function openPayment(){if(cart.length===0){alert('Cart is empty');return}openModal('paymentModal')}
-function finishPayment(){let total=document.getElementById('cartTotal').textContent;let order='Order:
-';cart.forEach(i=>order+=i.name+' x'+i.qty+'
-');order+='Total: Q'+total;orders.push(order);points+=50;cart=[];save();updateCart();renderOrders();closeModal('paymentModal');alert('P
+function openPayment(){if(!cart.length){alert('Cart is empty');return}openModal('paymentModal')}
+function finishPayment(){let total=document.getElementById('cartTotal').textContent;let order='Order:\n';cart.forEach(i=>order+=i.name+' x'+i.qty+'\n');order+='Total Q'+total;orders.push(order);cart=[];points+=50;save();updateCart();updateRewards();closeModal('paymentModal');alert('Payment completed');window.open('https://wa.me/50237223083?text='+encodeURIComponent(order),'_blank')}
+function openOrders(){document.getElementById('ordersBox').innerHTML=orders.length?orders.map(o=>'<div class="item">'+o+'</div>').join(''):'No orders yet.';openModal('ordersModal')}
+function saveAccount(){localStorage.setItem('name',document.getElementById('name').value);localStorage.setItem('email',document.getElementById('email').value);localStorage.setItem('address',document.getElementById('address').value);localStorage.setItem('payment',document.getElementById('payment').value);toast('Account saved')}
+function openProfile(){document.getElementById('profileBox').innerHTML='<div class="item">Name: '+(localStorage.getItem('name')||'Unknown')+'</div><div class="item">Email: '+(localStorage.getItem('email')||'Unknown')+'</div><div class="item">Points: '+points+'</div><div class="item">Level: '+level+'</div>';openModal('profileModal')}
+function toggleTheme(){document.body.classList.toggle('light')}
+function changeLang(){const lang=document.getElementById('lang').value;document.querySelectorAll('[data-en]').forEach(el=>el.textContent=el.dataset[lang])}
+function contactSupport(){window.open('https://wa.me/50237223083?text='+encodeURIComponent('Hello, I need help with Gamer Store Ultra'),'_blank')}
+function shareStore(){if(navigator.share)navigator.share({title:'Gamer Store Ultra',text:'Check out my store',url:location.href});else{navigator.clipboard?.writeText(location.href);toast('Link copied')}}
+function openModal(id){document.getElementById(id).style.display='flex'}
+function closeModal(id){document.getElementById(id).style.display='none'}
+function scrollToProducts(){document.getElementById('productsTitle').scrollIntoView({behavior:'smooth'})}
+function scrollToRaffles(){document.getElementById('raffles').scrollIntoView({behavior:'smooth'})}
+function unlock(name){const b=document.getElementById('achievements');if(!b.textContent.includes(name))b.innerHTML='<div class="item">🏅 '+name+'</div>'}
+function addReview(){const r=prompt('Write your review');if(r)toast('Review added')}
+let time=3600;setInterval(()=>{time--;const h=String(Math.floor(time/3600)).padStart(2,'0'),m=String(Math.floor((time%3600)/60)).padStart(2,'0'),s=String(time%60).padStart(2,'0');document.getElementById('countdown').textContent=`${h}:${m}:${s}`},1000);
+renderProducts();updateCart();updateRewards();
+</script>
+</body>
+  </html>
+
